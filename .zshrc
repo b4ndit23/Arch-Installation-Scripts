@@ -16,37 +16,40 @@
 #  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\ 
 # ( o.o )( o.o )( o.o )( o.o )( o.o )( o.o )( o.o )( o.o )( o.o )( o.o )( o.o )( o.o )( o.o )( o.o )( o.o )( o.o )( o.o )( o.o )
 #  > ^ <  > ^ <  > ^ <  > ^ <  > ^ <  > ^ <  > ^ <  > ^ <  > ^ <  > ^ <  > ^ <  > ^ <  > ^ <  > ^ <  > ^ <  > ^ <  > ^ <  > ^ < 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
+# export LANG=en_US.UTF-8
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 export ZSH="$HOME/.oh-my-zsh"
 #export MODULAR_HOME="/home/b0llull0s/.modular"
 #export PATH="/home/b0llull0s/.modular/pkg/packages.modular.com_mojo/bin:$PATH"
 #export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-# Add Ruby gem binaries to PATH
-export PATH="$HOME/.local/share/gem/ruby/3.3.0/bin:$PATH"
+export PATH="$HOME/.local/share/gem/ruby/3.4.4/bin:$PATH"
+export PATH="/opt/flutter/bin:$PATH"
+export ANDROID_HOME=~/Android/Sdk
+export PATH=$PATH:$HOME/go/bin
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
 
+## PATHS ##
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $ZSH/oh-my-zsh.sh
+source "$HOME/.local/bin/env"
+
+# Eval Functions
+eval "$(zoxide init zsh)"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="oh-my-theme"
+#ZSH_THEME="robbyrussell"
+#ZSH_THEME="agnoster"
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="false"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
 HYPHEN_INSENSITIVE="true"
 
 # Uncomment one of the following lines to change the auto-update behavior
@@ -58,7 +61,7 @@ HYPHEN_INSENSITIVE="true"
 # zstyle ':omz:update' frequency 13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
+DISABLE_MAGIC_FUNCTIONS="true"
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -91,23 +94,12 @@ HIST_STAMPS="mm/dd/yyyy"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
 #plugins=(git)
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $ZSH/oh-my-zsh.sh
-# User configuration
+
 ## Pywal ##
 cat ~/.cache/wal/sequences
-#cat ~/.cache/wal/sequences
-## PATHS ##
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -116,14 +108,7 @@ cat ~/.cache/wal/sequences
 #   export EDITOR='mvim'
 # fi
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases ca be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
 ## Aliases ##
 alias kill='sudo kill -9 $1'
 alias cd2='clear && cd $1 && ls'
@@ -141,6 +126,8 @@ alias audio='pavucontrol'
 alias up='sudo pacman -Syu'
 alias ls='eza --all --header --long --sort=modified $eza_params'
 alias la='eza -lbhHigUmuSa@'
+alias cd='z'
+alias cdi='zi'
 alias tree='eza --tree $eza_params'
 alias kat='bat'
 alias ga='git add .'
@@ -163,6 +150,7 @@ alias android-studio='QT_QPA_PLATFORM=xcb android-studio'
 alias pacmanff="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
 alias pacinfo="pacman -Qq | fzf --multi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns"
 alias ff="find . -type f | fzf --multi --preview 'if file --mime-encoding {} | grep -q binary; then strings {} | head -100; else bat --color=always {}; fi' --preview-window 'right:60%'"
+
 ## Functions ##
 function cheat() { curl -m 7 "http://cheat.sh/$1"; }
 function rmk() { scrub -p dod $1; shred -zun 10 -v $1; }
@@ -170,3 +158,10 @@ function walup() { wal -i "$(find ~/Downloads/w4llp4p3rs -type f -name '*.jpeg' 
 function box() { [ -z "$1" ] && echo "Usage: box <HTB_IP>" || sudo ufw allow from "$1" to any && echo "Traffic allowed from $1"; }
 function boxd() { [ -z "$1" ] && echo "Usage: boxd <HTB_IP>" || sudo ufw delete allow from "$1" to any && echo "Traffic rule deleted for $1"; }
 function randomchar() { < /dev/urandom tr -dc 'A-Za-z0-9' | head -c "$1"; echo; }
+function git-ssh() { [ -z "$SSH_AUTH_SOCK" ] && eval "$(ssh-agent -s)"; ssh-add -l | grep -q "$(ssh-keygen -lf ~/.ssh/github | awk '{print $2}')" || ssh-add ~/.ssh/github; }
+
+
+
+
+
+
