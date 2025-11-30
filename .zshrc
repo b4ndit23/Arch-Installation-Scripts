@@ -32,6 +32,14 @@ export PATH=$PATH:$HOME/go/bin
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="oh-my-theme"
+#ZSH_THEME="robbyrussell"
+#ZSH_THEME="agnoster"
+
 ## PATHS ##
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -40,14 +48,6 @@ source "$HOME/.local/bin/env"
 
 # Eval Functions
 eval "$(zoxide init zsh)"
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="oh-my-theme"
-#ZSH_THEME="robbyrussell"
-#ZSH_THEME="agnoster"
 
 CASE_SENSITIVE="false"
 HYPHEN_INSENSITIVE="true"
