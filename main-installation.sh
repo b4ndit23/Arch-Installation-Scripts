@@ -130,16 +130,19 @@ install_packages curlie waybar yazi ueberzugpp fzf btop cliphist pam_yubico pam-
 
 
 # Graphic Design
-install_packages gimp blender inkscape 
+install_packages gimp
+#blender inkscape 
 
 # Text Editor/Viewer
 install_packages obsidian libreoffice-fresh zathura zathura-pdf-mupdf
 
 # Gaming
-install_packages steam lutris
+install_packages steam
+#lutris
 
 # Messengers
-install_packages signal-desktop thunderbird
+install_packages signal-desktop
+#thunderbird
 
 # OBS
 install_packages obs-studio xdg-desktop-portal-hyprland xdg-desktop-portal-wlr
