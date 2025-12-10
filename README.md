@@ -33,9 +33,9 @@
 - Fully `pywal` integration with nerdfont icons.
 
   
-### Additional Packages included:
+### Prefered Bloat:
 
-`pacman-contrib`  `yay`  `atool` `unzip` `zip`  `exa`  `bat`  `ufw`  `wireshark` `virtualbox`  `obsidian`  `signal`  `btop`  `wget`  `curl`  `less`  `tree`  `locate`  `neofetch`  `python`  `rust`  `go`  `pamixer`  `scrub`  `pam_yubico`  `pam-u2f`  `burpsuite`  `sxiv`  `p7zip`  `apparmor`  `whois`  `tcpdump`  `net-tools`
+`yay`  `atool` `exa`  `bat`  `wireshark`  `virtualbox`  `obsidian`  `signal`  `python`  `rust`  `go`  `scrub`  `sxiv`  `apparmor`  `whois`  `tcpdump`  `net-tools` `tinyxxd`  `strace` `lsof` `fwupd` `geckodriver`  `ncurses`  `cmake`  `pngquant`  `oxipng`  `mkcert`  `cmus`  `vlc`  `steam`  `proton-vpn` `timeshift`  `qemu`   `exiftool`   `firejail`   `docker-compose`   `dosfstools`   `macchanger`   `zoxide`   `resvg`   `fd`   `ripgrep`  `gimp`  `ibreoffice`  `zathura`  `obs`  `xpad`  `youtube-music`  `cursor`
 
 ### Zsh Plugings, Aliases and Functions:
 
