@@ -17,9 +17,9 @@
 | Window Manager         | Hyprland               |
 | Terminal Manager       | Alacritty              |
 | Clipboard Manager      | Cliphist               |
-| File Manager           | Ranger                 |
+| File Manager           | Yazi                   |
 | Status Bar             | Waybar                 |
-| Launcher               | Wofi                    |
+| Launcher               | Wofi                   |
 | Shell                  | Zsh                    |
 | Browser                | Librewolf              |
 | Text Editor            | Codium                 |
@@ -35,7 +35,7 @@
   
 ### Additional Packages included:
 
-`pacman-contrib`  `yay`  `atool` `unzip` `zip`  `exa`  `bat`  `ufw`  `wireshark`  `bleachbit`  `virtualbox`  `obsidian`  `nordvpn`  `signal`  `btop`  `wget`  `curl`  `less`  `tree`  `locate`  `qflipper`  `neofetch`  `python`  `rust`  `go`  `pamixer`  `cmus`  `vscodium-bin`  `scrub`  `pam_yubico`  `pam-u2f`  `burpsuite`  `sxiv`  `p7zip`  `apparmor`  `whois`  `tcpdump`  `net-tools`
+`pacman-contrib`  `yay`  `atool` `unzip` `zip`  `exa`  `bat`  `ufw`  `wireshark` `virtualbox`  `obsidian`  `signal`  `btop`  `wget`  `curl`  `less`  `tree`  `locate`  `neofetch`  `python`  `rust`  `go`  `pamixer`  `scrub`  `pam_yubico`  `pam-u2f`  `burpsuite`  `sxiv`  `p7zip`  `apparmor`  `whois`  `tcpdump`  `net-tools`
 
 ### Zsh Plugings, Aliases and Functions:
 
