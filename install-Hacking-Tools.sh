@@ -54,6 +54,7 @@ install_packages python-pwntools python-aiosmtpd python-websocket-client python-
 # Go 
 go install github.com/sensepost/gowitness@latest
 go install github.com/CodeOne45/vex-tui@latest
+go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
 
 # Yay Packages
 install_packages_yay ffuf gobuster burpsuite smbmap naabu netexec ruby-evil-winrm whatweb steghide pince git-dumper-git caido-desktop rustscan hashid
