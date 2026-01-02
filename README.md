@@ -209,6 +209,10 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 ```sh
 sudo pacman -Scc
 ```
+- Same for `Yay`:
+```sh
+yay -Y --clean
+```
 - You can also use this command to delete core dump files
 ```sh
 find / -xdev -name core -ls -o  -path "/lib*" -prune
