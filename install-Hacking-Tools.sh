@@ -46,7 +46,7 @@ enable_services() {
 }
 
 # Packages
-install_packages qflipper-bin nmap openbsd-netcat rlwrap mariadb john feroxbuster impacket metasploit exploitdb proxychains-ng oath-toolkit bind sqlmap wpscan sherlock sqlite chromium tftp-hpa zaproxy hashcat nasm strace
+install_packages finalrecon qflipper-bin nmap openbsd-netcat rlwrap mariadb john feroxbuster impacket metasploit exploitdb proxychains-ng oath-toolkit bind sqlmap wpscan sherlock sqlite chromium tftp-hpa zaproxy hashcat nasm strace
 
 # Python
 install_packages python-pwntools python-aiosmtpd python-websocket-client python-bs4 python-requests python-beautifulsoup4 python-pexpect python-selenium python-pycryptodome
