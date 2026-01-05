@@ -28,6 +28,6 @@ Y_OFFSET=-150  # Adjust based on xpad height
 FINAL_X=$((CURSOR_X + X_OFFSET))
 FINAL_Y=$((CURSOR_Y + Y_OFFSET))
 
-hyprctl keyword windowrulev2 "move $FINAL_X $FINAL_Y,class:^(com\.github\.th_ch\.youtube_music)$" 
+hyprctl keyword windowrule "move $FINAL_X $FINAL_Y,match:class com.github.th_ch.youtube_music" 
 
 youtube-music &
