@@ -57,7 +57,7 @@ go install github.com/CodeOne45/vex-tui@latest
 go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
 
 # Yay Packages
-install_packages_yay ffuf gobuster burpsuite smbmap naabu netexec ruby-evil-winrm whatweb steghide pince git-dumper-git caido-desktop rustscan hashid
+install_packages_yay ffuf gobuster burpsuite smbmap naabu netexec ruby-evil-winrm whatweb steghide pince git-dumper-git caido-desktop rustscan hashid python-oletools
 
 # Posting
 curl -LsSf https://astral.sh/uv/install.sh | sh
