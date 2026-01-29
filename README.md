@@ -217,6 +217,10 @@ yay -Y --clean
 ```sh
 find / -xdev -name core -ls -o  -path "/lib*" -prune
 ```
+- The Journal Logs can grow big over time also:
+```sh
+sudo journalctl --vacuum-size=500M
+```
 - Install `flatpak` applications using your home folder instead of root:
 ```sh
 flatpak install --user appName.flatpak
