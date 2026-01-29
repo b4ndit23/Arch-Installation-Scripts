@@ -14,6 +14,7 @@ sudo pacman -S --needed --noconfirm \
     virt-viewer \
     dnsmasq \
     iptables-nft \
+    bridge-utils \
     swtpm \
     edk2-ovmf
 
@@ -21,9 +22,11 @@ sudo pacman -S --needed --noconfirm \
 echo "[*] Adding $USER to libvirt group..."
 sudo usermod -aG libvirt $USER
 
-# 3. Enable and start libvirt daemon
-echo "[*] Starting and enabling libvirtd service..."
+# 3. Enable and start libvirt modular daemons
+echo "[*] Starting and enabling libvirt services..."
 sudo systemctl enable --now libvirtd
+sudo systemctl enable --now virtnetworkd
+sudo systemctl enable --now virtstoraged
 
 # 4. Set up default network if it doesn't exist
 echo "[*] Ensuring default network is active..."
