@@ -35,7 +35,7 @@
   
 ### Prefered Bloat:
 
-`yay`  `atool` `exa`  `bat`  `wireshark`  `virtualbox`  `obsidian`  `signal`  `python`  `rust`  `go`  `scrub`  `sxiv`  `apparmor`  `whois`  `tcpdump`  `net-tools` `tinyxxd`  `strace` `lsof` `fwupd` `geckodriver`  `ncurses`  `cmake`  `pngquant`  `oxipng`  `mkcert`  `cmus`  `vlc`  `steam`  `proton-vpn` `timeshift`  `qemu`   `exiftool`   `firejail`   `docker-compose`   `dosfstools`   `macchanger`   `zoxide`   `resvg`   `fd`   `ripgrep`  `gimp`  `ibreoffice`  `zathura`  `obs`  `xpad`  `youtube-music`  `cursor`
+`yay`  `atool` `exa`  `bat`  `wireshark`  `obsidian`  `signal`  `python`  `rust`  `go`  `scrub`  `sxiv`  `apparmor`  `whois`  `tcpdump`  `net-tools` `tinyxxd`  `strace` `lsof` `fwupd` `geckodriver`  `ncurses`  `cmake`  `pngquant`  `oxipng`  `mkcert`  `cmus`  `vlc`  `steam`  `proton-vpn` `timeshift`  `qemu`   `exiftool`   `firejail`   `docker-compose`   `dosfstools`   `macchanger`   `zoxide`   `resvg`   `fd`   `ripgrep`  `gimp`  `ibreoffice`  `zathura`  `obs`  `xpad`  `youtube-music`  `cursor`
 
 ### Zsh Plugings, Aliases and Functions:
 
