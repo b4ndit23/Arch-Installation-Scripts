@@ -164,6 +164,10 @@ done
 
 cp -r wal ~/.config || error_exit "Failed to copy wal/templates"
 
+# Dark Mode for root
+sudo cp ~/.config/gtk-3.0/settings.ini /root/.config/gtk-3.0/settings.ini
+sudo cp ~/.config/gtk-4.0/settings.ini /root/.config/gtk-4.0/settings.ini
+
 # Script Permissions
 sudo chmod +x ~/.config/hypr/scripts/*.sh || error_exit "Failed to change script permissions"
 
