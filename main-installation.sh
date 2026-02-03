@@ -127,8 +127,6 @@ enable_services bluetooth
 # Utils
 install_packages curlie waybar yazi ueberzugpp fzf btop cliphist pam_yubico pam-u2f atool unzip zip sxiv 7zip net-tools openvpn proton-vpn-gtk-app jq timeshift qemu-user perl-image-exiftool firejail docker-compose dosfstools macchanger zoxide resvg fd ripgrep
 
-
-
 # Graphic Design
 install_packages gimp
 #blender inkscape 
@@ -149,7 +147,9 @@ install_packages obs-studio xdg-desktop-portal-hyprland xdg-desktop-portal-wlr
 
 # Wireshark
 install_packages wireshark-qt
-sudo chmod +x /usr/bin/dumpcap || error_exit "Failed to change permissions for dumpcap"
+sudo usermod -aG wireshark $USER
+sudo setcap cap_net_raw,cap_net_admin+eip /usr/bin/dumpcap
+#sudo chmod +x /usr/bin/dumpcap || error_exit "Failed to change permissions for dumpcap"
 
 # Screenshots
 install_packages grim swappy slurp
