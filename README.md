@@ -242,10 +242,6 @@ If `QEMU` fails to capture special keys or you cannot interact with the VM windo
 ```sh
 sudo virsh send-key win11 KEY_LEFTSHIFT KEY_F10
 ```
-- Type `alias`to check the list of aliases, there are a few, you make like some.
-- Nowdays with `Steam` using `proton` you dont need to install the `graphical drivers` yourself, the correct drivers for your system will be install when installing `proton` from `Steam`.
-- Use `atool` to compress and uncompress files, worth to have a look at the `Arch Manual pages`.
-- I dont use `xwayland` but in case you do, the `env` paths are commented on `hyprland.conf`.
 > [!CAUTION]
 >- Currently Virtualbox Can't Use Fullscreen Mode On Wayland by default.
 >- To fix this, go to "User Interface" on the "Settings" from your VM and uncheck "Show in Full-screen/Seamless".
