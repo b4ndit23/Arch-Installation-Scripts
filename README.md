@@ -194,55 +194,58 @@ pywalfox install --browser librewolf
 
 ## Tips:
 
-- Sometimes you may enconter an error retrieving the `blackarch.db` while updating the system, this error is normally related to a mirror having an expired certificate, simply comment that mirror and uncomment another one
+Sometimes you may enconter an error retrieving the `blackarch.db` while updating the system, this error is normally related to a mirror having an expired certificate, simply comment that mirror and uncomment another one
 ```bash
 sudo nano /etc/pacman.d/blackarch-mirrorlist
 ``` 
-- In case you need to generate a new `py-wal` template just use the alias `walup`:
+In case you need to generate a new `py-wal` template just use the alias `walup`:
 ```bash
 # For a specific file
 wal -i ~/Downloads/w4llp4p3rs/1.jpg
 ```
-- In case you need to make zsh your default shell:
+In case you need to make zsh your default shell:
 ```bash
 usermod --shell /usr/bin/zsh username
 ```
-- Refresh your system data base:
+Refresh your system data base:
 ```bash
 sudo updatedb
 ``` 
-- To implement plugings use locate to find the path of the plugin file and add it to your source file:
+To implement plugings use locate to find the path of the plugin file and add it to your source file:
 ```bash
 # use this command:
 locate zsh-autosuggestions
 # Copy the .zsh entry and add it as source in the config file:
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 ```
-- Type `alias`to check the list of aliases.
-- Nowdays with `Steam` using `proton` you dont need to install the `graphical drivers` yourself, the correct drivers for your system will be install when installing `proton` from `Steam`.
-- Use `atool` to compress and uncompress files, worth to have a look at the `Arch Manual pages`.
-- Once you have apparmor ready you may want to have a look to the `snap store`.
-- I dont use `xwayland` but in case you do, the `env` paths are commented on `hyprland.conf`.
-- At some point your pacman cache may grow more than it should, clear old libraries and cache to release space
+At some point your pacman cache may grow more than it should, clear old libraries and cache to release space
 ```sh
 sudo pacman -Scc
 ```
-- Same for `Yay`:
+Same for `Yay`:
 ```sh
 yay -Y --clean
 ```
-- You can also use this command to delete core dump files
+You can also use this command to delete core dump files
 ```sh
 find / -xdev -name core -ls -o  -path "/lib*" -prune
 ```
-- The Journal Logs can grow big over time also:
+The Journal Logs can grow big over time also:
 ```sh
 sudo journalctl --vacuum-size=500M
 ```
-- Install `flatpak` applications using your home folder instead of root:
+Install `flatpak` applications using your home folder instead of root:
 ```sh
 flatpak install --user appName.flatpak
-``` 
+```
+If `QEMU` fails to capture special keys or you cannot interact with the VM window directly, you can inject inputs directly from the host terminal:
+```sh
+sudo virsh send-key win11 KEY_LEFTSHIFT KEY_F10
+```
+- Type `alias`to check the list of aliases, there are a few, you make like some.
+- Nowdays with `Steam` using `proton` you dont need to install the `graphical drivers` yourself, the correct drivers for your system will be install when installing `proton` from `Steam`.
+- Use `atool` to compress and uncompress files, worth to have a look at the `Arch Manual pages`.
+- I dont use `xwayland` but in case you do, the `env` paths are commented on `hyprland.conf`.
 > [!CAUTION]
 >- Currently Virtualbox Can't Use Fullscreen Mode On Wayland by default.
 >- To fix this, go to "User Interface" on the "Settings" from your VM and uncheck "Show in Full-screen/Seamless".
@@ -261,7 +264,7 @@ flatpak install --user appName.flatpak
 | `Super + Enter`                      | Alacritty               |
 | `Super + E`                          | Librewolf               |
 | `Super + K`                          | Kill Window             |
-| `Super + D`                          | Wofi                     |
+| `Super + D`                          | Wofi                    |
 | `Super + [1-9]`                      | Switch Workspace        |
 | `Super + [SHIFT] + [1-9]`            | Move Window to Workspace|
 | `Super + [SHIFT] + [ARROW]`          | Resize Window           |
@@ -285,7 +288,6 @@ flatpak install --user appName.flatpak
 | `Super + V`                          | Clipboard               |
 
 ## Credits and appreciations 
-
 - Credit to **_Stephan Raabe_** for the base idea behind the custom scripts and all the `pywal` integration without his youtube channel would have been way harder.
 - Credit to **_s4vitar_** for the `rmk` function.
 - Credit to the **_annonymous_** user who posted the `waybar` custom module to see your public ip.
