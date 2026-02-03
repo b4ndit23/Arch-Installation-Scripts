@@ -165,6 +165,24 @@ aa-enabled
 # Now parse the profiles
 sudo apparmor_parser /usr/share/apparmor/extra-profiles
 ```
+### Pacman Hooks
+- Sometimes `Pacman` overwrite your configuration for an app when you update it, that's the case for `Wireshark`, so a good practice so solve this problem is to create `Pacman` hooks so your configuration persist after updates:
+```sh
+sudo mkdir -p /etc/pacman.d/hooks
+cat << EOF | sudo tee /etc/pacman.d/hooks/wireshark-dumpcap.hook > /dev/null
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = wireshark-qt
+
+[Action]
+Description = Setting capabilities on dumpcap
+When = PostTransaction
+Exec = /usr/bin/sh -c 'setcap cap_net_raw,cap_net_admin+eip /usr/bin/dumpcap || true'
+EOF
+```
+
 ### Pywalfox
 - For `Librewolf` you need to run this command:
 ```bash
