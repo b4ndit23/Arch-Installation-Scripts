@@ -185,41 +185,4 @@ swww img ~/Arch-Installation-Scripts/w4llp4p3rs/1.jpg
 SCRIPT_DIR=$(dirname "$(realpath "$0")")
 cp "$SCRIPT_DIR/.zshrc" ~/ || error_exit "Failed to copy .zshrc"
 
-# Function to install VirtualBox
-install_virtualbox() {
-    echo "Installing VirtualBox host modules..."
-    sudo pacman -S --noconfirm virtualbox-host-modules-arch
-    echo "Installing VirtualBox..."
-    sudo pacman -S --noconfirm virtualbox
-    echo "Loading VirtualBox modules..."
-    sudo modprobe vboxdrv
-    echo "Checking VirtualBox version..."
-    VBOX_VERSION=$(vboxmanage -v | cut -dr -f1)
-    echo "VirtualBox version detected: $VBOX_VERSION"
-    EXT_PACK_URL="https://download.virtualbox.org/virtualbox/$VBOX_VERSION/Oracle_VM_VirtualBox_Extension_Pack-$VBOX_VERSION.vbox-extpack"
-    echo "Downloading VirtualBox Extension Pack from $EXT_PACK_URL..."
-    wget $EXT_PACK_URL
-    echo "Installing VirtualBox Extension Pack..."
-    sudo vboxmanage extpack install Oracle_VM_VirtualBox_Extension_Pack-$VBOX_VERSION.vbox-extpack
-    echo "Verifying the installed Extension Pack..."
-    vboxmanage list extpacks
-    read -p "Do you want to add your user to the vboxusers group? (yes/no): " ADD_USER
-    if [[ "$ADD_USER" == "yes" ]]; then
-        sudo usermod -aG vboxusers $USER
-        echo "User $USER has been added to the vboxusers group."
-    else
-        echo "User $USER was not added to the vboxusers group."
-    fi
-    rm Oracle_VM_VirtualBox_Extension_Pack-$VBOX_VERSION.vbox-extpack
-    echo "VirtualBox installation and setup complete."
-}
-
-read -p "Do you want to install VirtualBox? (yes/no): " INSTALL_VBOX
-if [[ "$INSTALL_VBOX" == "yes" ]]; then
-    install_virtualbox
-else
-    echo "Skipping VirtualBox installation."
-fi
-
 echo "Finished! Please reboot."
-
