@@ -145,7 +145,7 @@ alias nc='netcat'
 alias http="python3 -m http.server"
 alias hypr="codium ~/.config/hypr/hyprland.conf"
 alias zshsrc="codium ~/.zshrc"
-alias htb="sudo openvpn ~/Documents/CTF/HTB/lab_b4ndit23.ovpn"
+alias htb="sudo openvpn ~/Documents/CTF/HTB/VPNs/machines_eu-free-7.ovpn"
 alias android-studio='QT_QPA_PLATFORM=xcb android-studio'
 alias pacmanff="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
 alias pacinfo="pacman -Qq | fzf --multi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns"
@@ -159,6 +159,7 @@ function box() { [ -z "$1" ] && echo "Usage: box <HTB_IP>" || sudo ufw allow fro
 function boxd() { [ -z "$1" ] && echo "Usage: boxd <HTB_IP>" || sudo ufw delete allow from "$1" to any && echo "Traffic rule deleted for $1"; }
 function randomchar() { < /dev/urandom tr -dc 'A-Za-z0-9' | head -c "$1"; echo; }
 function git-ssh() { [ -z "$SSH_AUTH_SOCK" ] && eval "$(ssh-agent -s)"; ssh-add -l | grep -q "$(ssh-keygen -lf ~/.ssh/github | awk '{print $2}')" || ssh-add ~/.ssh/github; }
+function cursorsize() { hyprctl setcursor $(hyprctl getcursor | awk '/theme/ {print $2}') $1}
 
 
 
