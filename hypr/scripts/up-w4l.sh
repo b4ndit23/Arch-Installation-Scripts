@@ -41,15 +41,19 @@ send_notification() {
 
 set_cursor() {
     local cursor_theme="$1"
+    local cursor_size="${2:-28}"
     
     gsettings set org.gnome.desktop.interface cursor-theme "$cursor_theme" 2>/dev/null
     
-    hyprctl setcursor "$cursor_theme" 28 2>/dev/null
+    hyprctl setcursor "$cursor_theme" "$cursor_size" 2>/dev/null
     
     export XCURSOR_THEME="$cursor_theme"
-    export XCURSOR_SIZE=28
+    export XCURSOR_SIZE="$cursor_size"
     
-    send_notification "Cursor Changed" "Cursor theme set to: $cursor_theme"
+    echo "$cursor_theme" > /tmp/hypr_current_theme
+    echo "$cursor_size" > /tmp/hypr_current_size
+    
+    send_notification "Cursor Changed" "$cursor_theme ($cursor_size)"
 }
 
 main_options=("wallpaper" "cursor" "both random")
