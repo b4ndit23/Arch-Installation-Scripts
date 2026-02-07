@@ -17,6 +17,7 @@
 #  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\ 
 # ( o.o )( o.o )( o.o )( o.o )( o.o )( o.o )( o.o )( o.o )( o.o )( o.o )( o.o )( o.o )( o.o )( o.o )( o.o )( o.o )( o.o )( o.o )
 #  > ^ <  > ^ <  > ^ <  > ^ <  > ^ <  > ^ <  > ^ <  > ^ <  > ^ <  > ^ <  > ^ <  > ^ <  > ^ <  > ^ <  > ^ <  > ^ <  > ^ <  > ^ < 
+SCRIPT_DIR=$(dirname "$(realpath "$0")")
 # Functions
 error_exit() {
     echo "$1" 1>&2
@@ -94,22 +95,25 @@ install_packages flatpak
 flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 # Yay setup
-install_packages base-devel git
+mkdir -p /tmp/yay_install
+cd /tmp/yay_install || error_exit "Failed to enter temp dir"
 git clone https://aur.archlinux.org/yay-git.git
 cd yay-git
-makepkg -si || error_exit "Failed to install yay"
-cd ..
+makepkg -si --noconfirm || error_exit "Failed to install yay"
+cd /tmp/yay_install
+rm -rf yay-git 
+cd - || return  
 
 # Mirrors setup
 sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup || error_exit "Failed to backup mirrorlist"
-sudo pacman -Sy --noconfirm pacman-contrib || error_exit "Failed to install pacman-contrib"
-# sudo rankmirrors -n 6 /etc/pacman.d/mirrorlist.backup > /etc/pacman.d/mirrorlist || error_exit "Failed to rank mirrors"
+install_packages reflector
+sudo reflector --latest 10 --sort rate --save /etc/pacman.d/mirrorlist
 
 # PacCache setup
 sudo systemctl enable --now paccache.timer || error_exit "Failed to enable paccache.timer"
 
 # Basic
-install_packages zsh alacritty wofi curl wget locate less tree exa bat apparmor whois tcpdump exfat-utils openssh lsof fwupd tinyxxd 
+install_packages zsh alacritty wofi curl wget plocate less tree exa bat apparmor whois tcpdump exfatprogs openssh lsof fwupd tinyxxd 
 
 # Qt
 install_packages qt5-wayland qt6-wayland qt6-base qt6-tools qtcreator
@@ -158,11 +162,16 @@ install_packages grim swappy slurp
 install_packages_yay ttf-firacode-nerd hyprland-qtutils swww vscodium-bin librewolf-bin scrub zsh-syntax-highlighting zsh-autosuggestions xpad youtube-music-bin cursor-bin python-pywalfox-librewolf
 
 # Dot Files
+cd "$SCRIPT_DIR" || exit 1 
 for config_dir in alacritty btop gtk-3.0 gtk-4.0 hypr swappy waybar; do
-    cp -r "$config_dir" ~/.config/ || error_exit "Failed to copy $config_dir"
+    if [ -d "$config_dir" ]; then
+        cp -r "$config_dir" ~/.config/ || error_exit "Failed to copy $config_dir"
+    fi
 done
 
-cp -r wal ~/.config || error_exit "Failed to copy wal/templates"
+if [ -d "wal" ]; then
+    cp -r wal ~/.config/ || error_exit "Failed to copy wal/templates"
+fi
 
 # Dark Mode for root
 sudo cp ~/.config/gtk-3.0/settings.ini /root/.config/gtk-3.0/settings.ini
@@ -176,7 +185,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 # Set pywal
 wal -i ~/Arch-Installation-Script/w4llp4p3rs/1.jpg || error_exit "Failed to set pywal"
-pywalfox install --browser librewolf || || error_exit "Failed to set pywalfox"
+pywalfox install --browser librewolf || error_exit "Failed to set pywalfox"
 
 # Set Wallpaper
 swww img ~/Arch-Installation-Scripts/w4llp4p3rs/1.jpg
