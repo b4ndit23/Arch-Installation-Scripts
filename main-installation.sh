@@ -184,7 +184,7 @@ sudo chmod +x ~/.config/hypr/scripts/*.sh || error_exit "Failed to change script
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" || error_exit "Failed to install oh-my-zsh"
 
 # Set pywal
-wal -i ~/Arch-Installation-Script/w4llp4p3rs/1.jpg || error_exit "Failed to set pywal"
+wal -i ~/Arch-Installation-Scripts/w4llp4p3rs/1.jpg || error_exit "Failed to set pywal"
 pywalfox install --browser librewolf || error_exit "Failed to set pywalfox"
 
 # Set Wallpaper
