@@ -284,10 +284,9 @@ sudo virsh send-key win11 KEY_LEFTSHIFT KEY_F10
 | `Super + V`                          | Clipboard               |
 
 ## Credits and appreciations 
-- Credit to **_Stephan Raabe_** for the base idea behind the custom scripts and all the `pywal` integration without his youtube channel would have been way harder.
+- Credit to **_Stephan Raabe_** for the `pywal`.
 - Credit to **_s4vitar_** for the `rmk` function.
 - Credit to the **_annonymous_** user who posted the `waybar` custom module to see your public ip.
-- Credit to **_Alan Moore_** and **_Dave Gibbons_** for `image1` and The band **_Sleep_** for `image2`
 - Wallpaper by **_Wenqing Yan_**. ;) 
 
 ![Screenshot](image3.png)
