@@ -191,7 +191,6 @@ pywalfox install --browser librewolf || error_exit "Failed to set pywalfox"
 swww img ~/Arch-Installation-Scripts/w4llp4p3rs/1.jpg
 
 # .zshsrc
-SCRIPT_DIR=$(dirname "$(realpath "$0")")
 cp "$SCRIPT_DIR/.zshrc" ~/ || error_exit "Failed to copy .zshrc"
 
 echo "Finished! Please reboot."
