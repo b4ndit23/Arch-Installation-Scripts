@@ -164,17 +164,8 @@ for theme_name in "${!themes[@]}"; do
     echo "  ✓ $theme_name"
 done
 
-echo ""
-echo "All cursors have been created with PROPER HOTSPOTS!"
-echo "The click point is now at the cursor TIP, not the center."
+
 echo ""
 echo "Your cursor themes are in: $OUTPUT_DIR"
-echo ""
-echo "Now run your theme switcher:"
-echo "  ./hypr-theme-switcher-v2.sh"
-echo ""
-echo "Hotspot positions used:"
-echo "  Default/Arrow: Top-left tip (like standard arrow cursors)"
-echo "  Hand: Index fingertip (like standard pointing hand)"
 echo ""
 echo "Cursor sizes: 28px, 36px, 52px, 68px (slightly bigger than standard)"
