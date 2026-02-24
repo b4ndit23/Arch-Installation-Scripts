@@ -49,6 +49,8 @@ install_packages_yay ffuf gobuster burpsuite smbmap naabu netexec ruby-evil-winr
 curl -LsSf https://astral.sh/uv/install.sh | sh
 # GEF
 bash -c "$(curl -fsSL https://gef.blah.cat/sh)"
+# Penelope
+wget https://raw.githubusercontent.com/brightio/penelope/refs/heads/main/penelope.py && python3 penelope.py
 
 #  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\ 
 # ( o.o )( o.o )( o.o )( o.o )( o.o )( o.o )( o.o )( o.o )( o.o )( o.o )( o.o )( o.o )( o.o )( o.o )( o.o )( o.o )( o.o )( o.o )
