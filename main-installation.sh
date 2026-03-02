@@ -133,7 +133,7 @@ install_packages curlie waybar yazi ueberzugpp fzf btop cliphist pam_yubico pam-
 
 # Graphic Design
 install_packages gimp
-#blender inkscape 
+#blender inkscape kdenlive
 
 # Text Editor/Viewer
 install_packages obsidian libreoffice-fresh zathura zathura-pdf-mupdf
