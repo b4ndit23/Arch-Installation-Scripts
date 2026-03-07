@@ -290,6 +290,4 @@ sudo virsh send-key win11 KEY_LEFTSHIFT KEY_F10
 - Credit to the **_annonymous_** user who posted the `waybar` custom module to see your public ip.
 - Wallpaper by **_Wenqing Yan_**. ;) 
 
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/J3J41UVIX7)
-
 ![Screenshot](image3.png)
