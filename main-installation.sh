@@ -98,7 +98,7 @@ sudo reflector --latest 10 --sort rate --save /etc/pacman.d/mirrorlist
 sudo systemctl enable --now paccache.timer || error_exit "Failed to enable paccache.timer"
 
 # Basic
-install_packages zsh alacritty wofi curl wget plocate less tree exa bat apparmor whois tcpdump exfatprogs openssh lsof fwupd tinyxxd 
+install_packages zsh alacritty wofi curl wget plocate less tree exa bat apparmor whois tcpdump exfatprogs openssh lsof fwupd tinyxxd iw
 
 # Qt
 install_packages qt5-wayland qt6-wayland qt6-base qt6-tools qtcreator
