@@ -32,7 +32,31 @@ enable_services() {
 }
 
 # Packages
-install_packages freerdp csvlens binwalk aircrack-ng navi ipcalc exiftool hydra checksec net-snmp finalrecon qflipper-bin nmap openbsd-netcat rlwrap mariadb john feroxbuster impacket metasploit exploitdb proxychains-ng oath-toolkit bind sqlmap wpscan sherlock sqlite chromium tftp-hpa zaproxy hashcat nasm strace
+install_packages binwalk finalrecon qflipper-bin openbsd-netcat rlwrap impacket metasploit proxychains-ng oath-toolkit bind nasm strace
+
+# Protocols
+install_packages freerdp net-snmp tftp-hpa
+
+# Utility
+install_package navi ipcalc csvlens 
+
+# Bruteforcing
+install_package john feroxbuster hydra hashcat
+
+# Scanners
+install_package wpscan sherlock nmap
+
+# Databases
+install_packages exploitdb sqlmap mariadb sqlite
+
+# Wifi
+install_packages macchanger bettercap aircrack-ng
+
+# Stego
+install_packages exiftool 
+
+# Yay Packages
+install_packages_yay ffuf gobuster burpsuite smbmap naabu netexec ruby-evil-winrm whatweb steghide pince git-dumper-git caido-desktop rustscan hashid python-oletools detect-it-easy responder
 
 # Python
 install_packages python-pwntools python-aiosmtpd python-websocket-client python-bs4 python-requests python-beautifulsoup4 python-pexpect python-selenium python-pycryptodome
@@ -42,13 +66,12 @@ go install github.com/sensepost/gowitness@latest
 go install github.com/CodeOne45/vex-tui@latest
 go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
 
-# Yay Packages
-install_packages_yay ffuf gobuster burpsuite smbmap naabu netexec ruby-evil-winrm whatweb steghide pince git-dumper-git caido-desktop rustscan hashid python-oletools detect-it-easy responder
-
 # Posting
 curl -LsSf https://astral.sh/uv/install.sh | sh
+
 # GEF
 bash -c "$(curl -fsSL https://gef.blah.cat/sh)"
+
 # Penelope
 wget https://raw.githubusercontent.com/brightio/penelope/refs/heads/main/penelope.py && python3 penelope.py
 
