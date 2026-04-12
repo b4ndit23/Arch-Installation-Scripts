@@ -10,7 +10,7 @@ set_wallpaper() {
     local wallpaper="$1"
     
     wal -q -i "$wallpaper" &>/dev/null
-    swww img "$wallpaper" &>/dev/null
+    awww img "$wallpaper" &>/dev/null
     
     nohup ~/.config/hypr/scripts/waybar.sh &>/dev/null &
     
