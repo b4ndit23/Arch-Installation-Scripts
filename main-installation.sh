@@ -100,6 +100,11 @@ sudo systemctl enable --now paccache.timer || error_exit "Failed to enable pacca
 # Basic
 install_packages zsh alacritty wofi curl wget plocate less tree exa bat apparmor whois tcpdump exfatprogs openssh lsof fwupd tinyxxd iw wireless_tools
 
+# USB Management
+install_packages udisks2 gvfs thunar-volman
+sudo usermod -aG storage ${SUDO_USER:-$USER}
+sudo systemctl enable --now udisks2
+
 # Qt
 install_packages qt5-wayland qt6-wayland qt6-base qt6-tools qtcreator
 
@@ -136,7 +141,7 @@ install_packages obs-studio xdg-desktop-portal-hyprland xdg-desktop-portal-wlr
 
 # Wireshark
 install_packages wireshark-qt
-sudo usermod -aG wireshark $USER
+sudo usermod -aG wireshark ${SUDO_USER:-$USER}
 sudo setcap cap_net_raw,cap_net_admin+eip /usr/bin/dumpcap
 #sudo chmod +x /usr/bin/dumpcap || error_exit "Failed to change permissions for dumpcap"
 
