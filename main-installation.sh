@@ -39,6 +39,9 @@ enable_services ufw.service
 # Install Hyprland
 install_packages hyprland ly
 
+# Install Git
+install_packages git git-lfs
+
 # Home directories setup
 mkdir -p ~/Downloads ~/Screenshots || error_exit "Failed to create directories"
 
@@ -98,28 +101,37 @@ sudo reflector --latest 10 --sort rate --save /etc/pacman.d/mirrorlist
 sudo systemctl enable --now paccache.timer || error_exit "Failed to enable paccache.timer"
 
 # Basic
-install_packages zsh alacritty wofi curl wget plocate less tree exa bat apparmor whois tcpdump exfatprogs openssh lsof fwupd tinyxxd iw wireless_tools
+install_packages zsh alacritty wofi plocate less tree exa bat apparmor exfatprogs lsof fwupd tinyxxd iw fzf btop cliphist waybar
 
-# USB Management
-install_packages udisks2 gvfs thunar-volman
+# File Management
+install_packages yazi thunar udisks2 gvfs thunar-volman
 sudo usermod -aG storage ${SUDO_USER:-$USER}
 sudo systemctl enable --now udisks2
 
 # Qt
 install_packages qt5-wayland qt6-wayland qt6-base qt6-tools qtcreator
 
+# Networking Tools
+install_packages curl wget tcpdump wireless_tools openssh net-tools curlie macchanger whois openvpn
+
 # Programming & Development
 install_packages cargo go tk geckodriver python-pip python-pywal ncurses cmake pngquant oxipng mkcert
 
 # Media
-install_packages cmus pamixer pavucontrol vlc
+install_packages sxiv cmus pamixer pavucontrol vlc
 
 # Bluetooth
 install_packages blueman bluez bluez-utils
 enable_services bluetooth
 
+# PAM
+install_packages pam_yubico pam-u2f
+
 # Utils
-install_packages curlie waybar yazi thunar ueberzugpp fzf btop cliphist pam_yubico pam-u2f atool unzip unrar zip sxiv 7zip net-tools openvpn proton-vpn-gtk-app jq timeshift qemu-user perl-image-exiftool firejail docker-compose dosfstools wev brightnessctl macchanger zoxide resvg fd ripgrep
+install_packages ueberzugpp proton-vpn-gtk-app jq timeshift qemu-user perl-image-exiftool firejail docker-compose dosfstools wev brightnessctl zoxide resvg fd ripgrep
+
+# Compression Tools
+install_packages atool unzip unrar zip 7zip
 
 # Graphic Design
 install_packages gimp
@@ -149,7 +161,7 @@ sudo setcap cap_net_raw,cap_net_admin+eip /usr/bin/dumpcap
 install_packages grim swappy slurp
 
 # Yay Packages 
-install_packages_yay ttf-firacode-nerd hyprland-qtutils swww vscodium-bin librewolf-bin scrub zsh-syntax-highlighting zsh-autosuggestions xpad youtube-music-bin cursor-bin python-pywalfox-librewolf
+install_packages_yay ttf-firacode-nerd hyprland-qtutils awww vscodium-bin librewolf-bin scrub zsh-syntax-highlighting zsh-autosuggestions xpad youtube-music-bin cursor-bin python-pywalfox-librewolf
 
 # Dot Files
 cd "$SCRIPT_DIR" || exit 1 
@@ -178,7 +190,7 @@ wal -i ~/Arch-Installation-Scripts/w4llp4p3rs/1.jpg || error_exit "Failed to set
 pywalfox install --browser librewolf || error_exit "Failed to set pywalfox"
 
 # Set Wallpaper
-swww img ~/Arch-Installation-Scripts/w4llp4p3rs/1.jpg
+awww img ~/Arch-Installation-Scripts/w4llp4p3rs/1.jpg
 
 # .zshsrc
 cp "$SCRIPT_DIR/.zshrc" ~/ || error_exit "Failed to copy .zshrc"
