@@ -157,6 +157,10 @@ sudo usermod -aG wireshark ${SUDO_USER:-$USER}
 sudo setcap cap_net_raw,cap_net_admin+eip /usr/bin/dumpcap
 #sudo chmod +x /usr/bin/dumpcap || error_exit "Failed to change permissions for dumpcap"
 
+# LLM
+#install_packages
+curl -fsSL https://llmfit.axjns.dev/install.sh | sh
+
 # Screenshots
 install_packages grim swappy slurp
 
