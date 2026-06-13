@@ -50,7 +50,7 @@ install_package wpscan sherlock nmap
 install_packages exploitdb sqlmap mariadb sqlite
 
 # Wifi
-install_packages macchanger bettercap aircrack-ng
+install_packages macchanger bettercap aircrack-ng hcxtools hcxdumptool pocl
 
 # Stego
 install_packages exiftool 
