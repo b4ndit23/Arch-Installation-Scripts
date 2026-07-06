@@ -117,10 +117,9 @@ nmcli device wifi connect SSID_or_BSSID password password hidden yes
 ```
 - And download this repository:
 ```bash
-git clone https://github.com/b0llull0s/Arch-Installation-Script.git
+git clone https://github.com/b0llull0s/Arch-Installation-Scripts.git
 ```
 - Some application doesnt accept relatives paths and you will have to change those to your own home folder.
-- You may also want to create a new directory with your desired profile name on `Wireshark/profile` and move the files inside.
 - You may want to add your wallpapers to the `w4llp4p3rs` folder or just change the name and path on the script as you want.
 - If you experience problems with `py-wal`, make sure that all the paths inside the config files match with your system files.
 ### Yubikey:
@@ -192,6 +191,36 @@ pywalfox install --browser librewolf
 - And then get the addon like you would normally do
 
 ![Screenshot](screenshot.png)
+
+### Launching Source-Installed Apps via Wofi
+- For apps you install manually that aren't on official repos drop a `.desktop` file in `~/.local/share/applications/`. `Wofi drun` mode picks it up natively:
+```bash
+nano ~/.local/share/applications/<appname>.desktop
+```
+- Add this to the file:
+```ini
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=<App Name>
+Comment=<short description>
+Exec=/full/path/to/binary %u
+Icon=<theme-icon-name>
+Terminal=false
+Categories=<see-freedesktop-spec>;
+StartupNotify=true
+StartupWMClass=<window-class>
+```
+- Refresh and test:                   
+```bash
+update-desktop-database ~/.local/share/applications/
+desktop-file-validate ~/.local/share/applications/<appname>.desktop
+```
+> [!TIP]
+> For AppImages with versioned filenames (`drawio-x86_64-29.3.0.AppImage`), symlink to a stable name so the `.desktop` file's `Exec=` doesn't break on upgrade:
+> ```bash
+> ln -sf ~/App-Images/drawio-x86_64-29.3.0.AppImage ~/App-Images/drawio.AppImage
+> ```
 
 ## Tips:
 
