@@ -1,3 +1,5 @@
+
+
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/J3J41UVIX7)
 ## Synopsis:
 
@@ -117,7 +119,7 @@ nmcli device wifi connect SSID_or_BSSID password password hidden yes
 ```
 - And download this repository:
 ```bash
-git clone https://github.com/b0llull0s/Arch-Installation-Scripts.git
+git clone https://github.com/b4ndit23/Arch-Installation-Scripts.git
 ```
 - Some application doesnt accept relatives paths and you will have to change those to your own home folder.
 - You may want to add your wallpapers to the `w4llp4p3rs` folder or just change the name and path on the script as you want.
