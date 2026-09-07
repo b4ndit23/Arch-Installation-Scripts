@@ -5,15 +5,11 @@
 # export LANG=en_US.UTF-8
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export ZSH="$HOME/.oh-my-zsh"
-#export MODULAR_HOME="/home/b0llull0s/.modular"
-#export PATH="/home/b0llull0s/.modular/pkg/packages.modular.com_mojo/bin:$PATH"
-#export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export PATH="$HOME/.local/share/gem/ruby/3.4.0/bin:$PATH"
 export PATH="/opt/flutter/bin:$PATH"
 export ANDROID_HOME=~/Android/Sdk
 export PATH=$PATH:$HOME/go/bin
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -27,13 +23,6 @@ source "$HOME/.local/bin/env"
 
 # Eval Functions
 eval "$(zoxide init zsh)"
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-#ZSH_THEME="robbyrussell"
-#ZSH_THEME="agnoster"
 
 CASE_SENSITIVE="false"
 HYPHEN_INSENSITIVE="true"
@@ -123,6 +112,7 @@ alias android-studio='QT_QPA_PLATFORM=xcb android-studio'
 alias pacmanff="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
 alias pacinfo="pacman -Qq | fzf --multi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns"
 alias ff="find . -type f | fzf --multi --preview 'if file --mime-encoding {} | grep -q binary; then strings {} | head -100; else bat --color=always {}; fi' --preview-window 'right:60%'"
+alias cron='systemctl --user list-timers'
 
 ## Functions ##
 function cdl() { clear && z "$1" && ls; }
