@@ -127,8 +127,11 @@ enable_services bluetooth
 # PAM
 install_packages pam_yubico pam-u2f
 
+# DEVOPs
+install_packages podman podman-compose
+
 # Utils
-install_packages ueberzugpp proton-vpn-gtk-app jq timeshift qemu-user perl-image-exiftool firejail docker-compose dosfstools wev brightnessctl zoxide resvg fd ripgrep
+install_packages ueberzugpp proton-vpn-gtk-app jq timeshift qemu-user perl-image-exiftool firejail dosfstools wev brightnessctl zoxide resvg fd ripgrep
 
 # Compression Tools
 install_packages atool unzip unrar zip 7zip
@@ -157,8 +160,7 @@ sudo usermod -aG wireshark ${SUDO_USER:-$USER}
 sudo setcap cap_net_raw,cap_net_admin+eip /usr/bin/dumpcap
 #sudo chmod +x /usr/bin/dumpcap || error_exit "Failed to change permissions for dumpcap"
 
-# LLM
-#install_packages
+# LLMfit
 curl -fsSL https://llmfit.axjns.dev/install.sh | sh
 
 # Screenshots
