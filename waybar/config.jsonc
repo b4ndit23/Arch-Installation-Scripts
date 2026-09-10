@@ -10,26 +10,28 @@
     "passthrough": false,
     "gtk-layer-shell": true,
     "height": 0,
+
     "modules-left": [
         "group/hardware",
         "network",
         "custom/vpn"
     ],
+
     "modules-center": [
+
 //        "hyprland/window",
         "hyprland/workspaces"
     ],
+
     "modules-right": [
-        "custom/cmus",
+	"mpris",
         "battery",
         "pulseaudio",
         "custom/updates",
         "clock"
     ],
 
-//    "hyprland/window": {
-//        "format": "{}"
-//    },
+
     "hyprland/workspaces" : {
         "format": "{icon}",
         "on-click": "activate",
@@ -38,12 +40,13 @@
             "active": "󰚌"
         },
         "sort-by-number": true
-       
+
     },
-// Calendar and clock 
+
+// Calendar and clock
     "clock": {
             "format": "  {:%A, %B %d, %Y (%R)}  ",
-            "format-alt": " 󱐋 {:%H:%M} 󱐋  ",
+            "format-alt": " 󱐋 {:%H:%M} 󱐋 ",
             "tooltip-format": "<tt><small>{calendar}</small></tt>",
             "calendar": {
                         "mode"          : "year",
@@ -68,6 +71,7 @@
                         }
         },
 
+// Battery
     "battery": {
         "states": {
             "good": 95,
@@ -80,6 +84,8 @@
         "format-alt": "{time} {icon}",
         "format-icons": ["󱐌", "󱐌", "", ""]
     },
+
+// PulseAudio
     "pulseaudio": {
         "format": "{icon} {volume}%",
         "tooltip": true,
@@ -97,7 +103,9 @@
             "car": ["󰽺", "󰽰", "󰽯"],
             "default": ["󰽺", "󰽰", "󰽯"]
         }
-    }, 
+    },
+
+// Hardware
     "group/hardware": {
 		"orientation": "horizontal",
 		"modules": [
@@ -106,28 +114,33 @@
 			"disk"
         ]
 	},
+
     "memory": {
         "interval": 30,
-        "format": "󰯙 {used:0.1f}G 󰮇",
+        "format": "󰯙 {used:0.1f}G 󰮇 ",
         "max-length": 10,
         "tooltip-format": "{percentage}% {total}G",
         "on-click": "alacritty -e btop"
     },
+
     "disk": {
         "interval": 30,
-        "format": "󰯉 {free} 󰻝",
-        "path": "/"
+        "format": "󰯉 {free} 󰻝 ",
+        "path": "/",
+        "on-click": "thunar"
     },
+
     "cpu": {
         "interval": 10,
-        "format": "󰢚 {}% 󰫤",
+        "format": "󰢚 {}%󰫤 ",
         "max-length": 10
     },
+
 // Network
 "network": {
     "format": "{ifname} {essid}",
-    "format-wifi": "󱇪 {ifname} 󰊠 {essid} 󰶵",
-    "format-ethernet": " {ifname}   {ipaddr} ",
+    "format-wifi": "󱇪 {ifname} 󰊠 {essid} 󰶵 ",
+    "format-ethernet": " {ifname}   {ipaddr}  ",
     "format-disconnected": "Not connected", //An empty format will hide the module.
     "tooltip-format": " {ifname} via {gwaddri}",
     "tooltip-format-wifi": "󱄙 {frequency} 󱑽 ({signalStrength}%)",
@@ -136,6 +149,7 @@
     "max-length": 50,
     "on-click": "alacritty -e nmtui"
 },
+
 // System Updates
 "custom/updates": {
     "format": " {}",
@@ -144,17 +158,32 @@
     "exec-if": "exit 0",                  // always run; consider advanced run conditions
     "signal": 8
 },
+
 // VPN
 "custom/vpn": {
-    "format": " {} 󰠥",
+    "format": "  {} 󰠥 ",
     "exec": "curl -s www.icanhazip.com",
     "interval": 30
 },
-// cmus-status
-"custom/cmus": {
-    "exec": "~/.config/hypr/scripts/cmus-status.sh",
-    "format": "󰝚 {} ",
-    "on-click": "alacritty -e cmus"
+
+"mpris": {
+    "format": "{player_icon} {dynamic}",
+    "format-paused": "{status_icon} <i>{dynamic}</i>",
+    "player": "YoutubeMusic",
+    "max-length": 45,
+    "tooltip": true,
+    "player-icons": {
+        "default": "󰎆",
+        "YoutubeMusic": "󰎆"
+    },
+    "status-icons": {
+        "playing": "󰐊",
+        "paused": "󰏤",
+        "stopped": "󰓛"
+    },
+    "on-click": "playerctl --player=YoutubeMusic play-pause",
+    "on-scroll-up": "playerctl --player=YoutubeMusic next",
+    "on-scroll-down": "playerctl --player=YoutubeMusic previous"
 }
 }
 
