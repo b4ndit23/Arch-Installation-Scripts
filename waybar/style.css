@@ -12,7 +12,7 @@
     font-weight: bold;
     font-size: 15px;
     min-height: 0;
-    padding: 1px;
+    padding: 0.7px;
 }
 /* Bar */
 window#waybar {
@@ -20,7 +20,7 @@ window#waybar {
 }
 /* Workspaces */
 #workspaces button {
-    padding: 3px;
+    padding: 1px;
     color: @color2;
 }
 
@@ -39,29 +39,26 @@ window#waybar {
 #disk,
 #custom-updates,
 #custom-vpn,
-#custom-cmus,
 #clock,
 #battery,
 #pulseaudio,
 #network,
-#workspaces,
-/* Background */
+#mpris,
 #workspaces {
     background: @color0;
     border-radius: 10px;
     margin-left: 0px;
-    padding-right: 10px;
-    padding-left: 10px;
+    padding-right: 5px;
+    padding-left: 5px;
 }
-/* Modules */
 #custom-vpn {
     color: @color13;
     border-radius: 10px;
     border-left: 0px;
     border-right: 0px;
-    margin-right: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
-
 #custom-updates {
     color: @color3;
     border-radius: 10px;
@@ -69,14 +66,12 @@ window#waybar {
     border-right: 0px;
     margin-left: 5px;
 }
-
 #clock {
     color: @color6;
     border-radius: 10px;
     margin-left: 5px;
     border-right: 0px;
 }
-
 #network {
     border-radius: 10px;
     color: @color10;
@@ -84,14 +79,12 @@ window#waybar {
     border-right: 0px;
     margin-right: 5px;
 }
-
 #pulseaudio {
     color: @color8;
     border-radius: 10px;
     border-left: 0px;
     border-right: 0px;
 }
-
 #battery {
     color: @color12;
     border-radius: 10px;
@@ -116,11 +109,13 @@ window#waybar {
     margin-right: 5px;
     border-left: 0px;
 }
-#custom-cmus {
+#mpris {
     color: @color5;
     border-radius: 10px;
     margin-right: 5px;
-    border-left: 0px;
+    margin-left: 5px;
+    padding-left: 5px;
+
 }
 
 /*  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  */
