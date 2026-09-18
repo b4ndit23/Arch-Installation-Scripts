@@ -6,12 +6,8 @@ echo "=== Fixing Mnemosyne after Hermes update ==="
 cd ~/.hermes/hermes-agent
 source venv/bin/activate
 
-echo "Upgrading mnemosyne-hermes..."
-pip install --upgrade mnemosyne-hermes
-
-echo "Creating symlink..."
-mkdir -p ~/.hermes/plugins/mnemosyne
-ln -sfn "$(python -c 'import pathlib, mnemosyne_hermes; print(pathlib.Path(mnemosyne_hermes.__file__).resolve().parent)')"/** ~/.hermes/plugins/mnemosyne/
+echo "Upgrading mnemosyne-hermes (pinned <1)..."
+pip install --upgrade 'mnemosyne-hermes>=0.7,<1'
 
 hermes config set memory.provider mnemosyne
 
