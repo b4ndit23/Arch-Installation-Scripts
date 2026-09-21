@@ -1,0 +1,15 @@
+{
+    "on-sigusr1": "hide",
+    "on-sigusr2": "show",
+    "layer": "top",
+    "position": "bottom",
+    "height": 32,
+    "exclusive": true,
+    "modules-center": ["tray"],
+
+    "tray": {
+        "icon-size": 20,
+        "spacing": 10,
+        "show-passive-items": false
+    }
+}
