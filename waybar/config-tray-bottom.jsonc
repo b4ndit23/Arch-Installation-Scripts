@@ -1,0 +1,37 @@
+{
+    "name": "bottom",
+    "on-sigusr1": "hide",
+    "on-sigusr2": "show",
+    "layer": "top",
+    "position": "bottom",
+    "height": 32,
+    "exclusive": true,
+    "modules-left": ["mpris"],
+    "modules-center": ["tray"],
+
+    "tray": {
+        "icon-size": 20,
+        "spacing": 10,
+        "show-passive-items": false
+    },
+
+    "mpris": {
+        "format": "{player_icon} {dynamic}",
+        "format-paused": "{status_icon} <i>{dynamic}</i>",
+        "player": "YoutubeMusic",
+        "max-length": 45,
+        "tooltip": true,
+        "player-icons": {
+            "default": "󰎆",
+            "YoutubeMusic": "󰎆"
+        },
+        "status-icons": {
+            "playing": "󰐊",
+            "paused": "󰏤",
+            "stopped": "󰓛"
+        },
+        "on-click": "playerctl --player=YoutubeMusic play-pause",
+        "on-scroll-up": "playerctl --player=YoutubeMusic next",
+        "on-scroll-down": "playerctl --player=YoutubeMusic previous"
+    }
+}

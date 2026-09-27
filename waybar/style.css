@@ -110,6 +110,17 @@ window#waybar {
     margin-right: 5px;
     border-left: 0px;
 }
+
+
+#tray {
+    background: @color0;
+    border-radius: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
 #mpris {
     color: @color5;
     border-radius: 10px;

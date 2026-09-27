@@ -29,7 +29,6 @@
     ],
 
     "modules-right": [
-	"mpris",
         "battery",
         "pulseaudio",
         "custom/updates",
@@ -169,25 +168,5 @@
     "format": "  {} 󰠥 ",
     "exec": "curl -s www.icanhazip.com",
     "interval": 30
-},
-
-"mpris": {
-    "format": "{player_icon} {dynamic}",
-    "format-paused": "{status_icon} <i>{dynamic}</i>",
-    "player": "YoutubeMusic",
-    "max-length": 45,
-    "tooltip": true,
-    "player-icons": {
-        "default": "󰎆",
-        "YoutubeMusic": "󰎆"
-    },
-    "status-icons": {
-        "playing": "󰐊",
-        "paused": "󰏤",
-        "stopped": "󰓛"
-    },
-    "on-click": "playerctl --player=YoutubeMusic play-pause",
-    "on-scroll-up": "playerctl --player=YoutubeMusic next",
-    "on-scroll-down": "playerctl --player=YoutubeMusic previous"
 }
 }
