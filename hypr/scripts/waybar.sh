@@ -9,7 +9,7 @@ killall waybar_auto_hide 2>/dev/null
 
 sleep 0.3
 
-waybar & waybar -c ~/.config/waybar/config-tray-bottom &
+waybar & waybar -c ~/.config/waybar/config-tray-bottom.jsonc -s ~/.config/waybar/style.css &
 
 sleep 0.8
 $HOME/.config/hypr/scripts/waybar_auto_hide --always-hidden &
