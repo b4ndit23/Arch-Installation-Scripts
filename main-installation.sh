@@ -128,7 +128,7 @@ enable_services bluetooth
 install_packages pam_yubico pam-u2f
 
 # DEVOPs
-install_packages podman podman-compose
+install_packages podman podman-compose podman-desktop
 
 # Utils
 install_packages ueberzugpp proton-vpn-gtk-app jq timeshift qemu-user perl-image-exiftool firejail dosfstools wev brightnessctl zoxide resvg fd ripgrep
